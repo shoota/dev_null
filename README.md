@@ -1,4 +1,4 @@
-# Add Hook
+# Add Hooks
 
 ========
 

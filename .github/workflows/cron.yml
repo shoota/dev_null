@@ -1,0 +1,17 @@
+name: cron check
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 16 * * 1-5" # weekday 01:00 (JST)
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: get JST day
+        id: day
+        env:
+          TZ: "Asia/Tokyo"
+        run: echo "output_date=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
+      - run: echo ${{ env.output_branch }}
